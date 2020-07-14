@@ -41,8 +41,8 @@ func GetSubRecord() (result Result) {
 // DNSPOD_DOMAIN=ilouis.cn,www
 // DNSPOD_KEY=YOUR_ID,YOUR_KEY
 // 注意事项：调用 run() 之前该子域名必须存在
-func Run() {
-	i, err := getPublicIP()
+func Run(extServer ...string) {
+	i, err := getPublicIP(extServer...)
 	if err != nil {
 		fmt.Println("[E]", err.Error())
 		return

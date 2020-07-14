@@ -14,17 +14,17 @@ unzip linux-amd64-ddns.zip
 chmod 777 ddns
 ```
 
-简单运行
+简单运行(需要设置[环境变量](#环境变量))
 
 ```
 nohup ./ddns &
 ```
 
-运行前需要设置[环境变量](#环境变量)，或者使用 [systemd](#systemd) 运行
+或者使用 [systemd](#systemd) 服务运行
 
 ## 环境变量
 
-需要配置以下环境变量才可正常工作
+配置以下环境变量
 
 * `DNSPOD_DOMAIN`
 * `DNSPOD_KEY`
@@ -86,3 +86,12 @@ systemctl enable|disable ddns
 ```
 systemctl start|stop|restart ddns
 ```
+
+## 自定义返回公网 IP
+
+请移步 [Wiki](https://github.com/CalmLong/ddns/wiki)
+
+## 引用以下项目
+
+* `http://icanhazip.com`
+

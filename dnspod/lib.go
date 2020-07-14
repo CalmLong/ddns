@@ -35,8 +35,12 @@ func unmarshal(body io.Reader, v interface{}) error {
 	return json.Unmarshal(j, &v)
 }
 
-func getPublicIP() (net.IP, error) {
-	resp, err := http.Get(getPublic)
+func getPublicIP(extServer ...string) (net.IP, error) {
+	server := getPublic
+	if len(extServer) > 0 && strings.TrimSpace(extServer[0]) != "" {
+		server = extServer[0]
+	}
+	resp, err := http.Get(server)
 	if err != nil {
 		return nil, err
 	}
